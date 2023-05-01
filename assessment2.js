@@ -16,6 +16,7 @@ const books = [
 function getAvailableBooks() {
         return books.filter(book =>book.isAvailable);
     }
+    console.log(getAvailableBooks())
 
 // 2. Create a function getBooksByAuthor that takes an author's name as an argument and
 // returns an array of all books by that author.
@@ -23,6 +24,7 @@ function getAvailableBooks() {
 function getBooksByAuthor(author) {
      return books.filter(book => book.author === author);
     }
+    console.log(getBooksByAuthor(`homer`))
 
 // 3. Create a function addNewBook that takes a book object as an argument and adds it
 // to the library, ensuring that the new book has all required properties (title, author,
@@ -30,12 +32,12 @@ function getBooksByAuthor(author) {
 
 function addNewBook(book) {
     let requiredProperties = ['title', 'author', 'publicationYear', 'isAvailable'];
-    let bookProperties = Object.keys(book);
+    let bookProperties = [];
     if (requiredProperties.every(property => bookProperties.includes(property))) {
         books.push(book);
     }
 }
-
+console.log('Book object is missing required properties.');
 // 4. Create a function checkoutBook that takes a book title as an argument and changes
 // the book's isAvailable property to false. If the book is not found in the library, the
 // function should return a message indicating that the book is not available.
@@ -48,6 +50,7 @@ function checkoutBook(title) {
         return `${title} is not available in the library`;
     }
 }
+console.log('Book is not available in the library.');
 
 // 5. Create a function returnBook that takes a book title as an argument and changes the
 // book's isAvailable property to true. If the book is not found in the library, the function
@@ -61,3 +64,4 @@ function returnBook(title) {
         return `${title} does not belong to the library`;
     }
 }
+console.log('Book does not belong to the library.');
